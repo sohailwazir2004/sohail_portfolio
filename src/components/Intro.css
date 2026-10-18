@@ -1,0 +1,36 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 22px;
+  background: var(--bg);
+}
+
+.intro-word {
+  display: flex;
+  overflow: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 12vw, 7rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.intro-word span {
+  display: inline-block;
+}
+
+.intro-dot {
+  color: var(--accent-2);
+}
+
+.intro-bar {
+  width: min(240px, 60vw);
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gradient);
+  transform-origin: left;
+}

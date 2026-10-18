@@ -1,0 +1,171 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  transition:
+    padding 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+  border-bottom: 1px solid transparent;
+}
+
+/* Shrinks and turns into frosted glass once you scroll. */
+.navbar.is-scrolled {
+  padding: 10px 0;
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom-color: var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+.nav-logo-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2px;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 55%, transparent);
+}
+
+.nav-links a {
+  position: relative;
+  display: block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: var(--text);
+}
+
+/* The pill slides between links thanks to Framer Motion's shared layoutId. */
+.nav-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+}
+.nav-label {
+  position: relative;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  font-size: 1.05rem;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.menu-btn {
+  display: none;
+}
+
+/* ---------- Full-screen mobile menu ---------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 28px 40px;
+  background: var(--bg);
+  overflow-y: auto;
+}
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at 100% 0%,
+    color-mix(in srgb, var(--accent) 22%, transparent),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.menu-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.mobile-menu ul {
+  position: relative;
+  display: grid;
+  gap: 6px;
+}
+
+.mobile-menu a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 6px 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 9vw, 2.8rem);
+  font-weight: 600;
+  color: var(--muted);
+}
+.mobile-menu a.is-active,
+.mobile-menu a:hover {
+  color: var(--text);
+}
+.menu-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--accent-text);
+}
+
+@media (max-width: 960px) {
+  .nav-links {
+    display: none;
+  }
+  .menu-btn {
+    display: grid;
+  }
+}

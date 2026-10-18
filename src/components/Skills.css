@@ -1,0 +1,100 @@
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 0;
+  margin-bottom: 48px;
+  border-block: 1px solid var(--border);
+  background: var(--bg-soft);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.marquee-item svg {
+  font-size: 1.5rem;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+  gap: 18px;
+}
+
+.skill-card {
+  padding: 24px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.skill-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  box-shadow: var(--glow);
+}
+.skill-card header {
+  margin-bottom: 18px;
+}
+.skill-card h3 {
+  font-size: 1.2rem;
+}
+.skill-card header p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+.skill-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  cursor: default;
+}
+.skill-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.learning-card {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--accent-2) 45%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent-2) 8%, var(--surface)), var(--surface));
+}
+.skill-badge.learning {
+  border-style: dashed;
+  color: var(--text);
+}
+.skill-badge.learning .skill-icon {
+  color: var(--accent-2);
+}

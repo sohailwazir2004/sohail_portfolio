@@ -1,0 +1,292 @@
+/* ---------- Theme tokens ----------
+   Every colour in the site comes from these variables.
+   [data-theme] on <html> switches between the two sets. */
+:root,
+[data-theme='dark'] {
+  --bg: #07080f;
+  --bg-soft: #0c0e1a;
+  --surface: #11131f;
+  --surface-2: #181b2b;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #eceef6;
+  --muted: #9ba1b9;
+  --accent: #8b5cf6;
+  --accent-2: #22d3ee;
+  --accent-text: #b9a3ff;
+  --gold: #d4a373;
+  --gradient: linear-gradient(120deg, #8b5cf6, #22d3ee);
+  --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+  --glow: 0 0 0 1px rgba(139, 92, 246, 0.35), 0 18px 50px -12px rgba(139, 92, 246, 0.45);
+  --blob-opacity: 0.55;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg: #f6f6fb;
+  --bg-soft: #eef0f8;
+  --surface: #ffffff;
+  --surface-2: #f1f2f9;
+  --border: rgba(16, 18, 40, 0.09);
+  --border-strong: rgba(16, 18, 40, 0.18);
+  --text: #121425;
+  --muted: #535a74;
+  --accent: #6d28d9;
+  --accent-2: #0891b2;
+  --accent-text: #5b21b6;
+  --gold: #9a6431;
+  --gradient: linear-gradient(120deg, #6d28d9, #0891b2);
+  --shadow: 0 20px 45px -24px rgba(30, 30, 80, 0.35);
+  --glow: 0 0 0 1px rgba(109, 40, 217, 0.25), 0 18px 45px -14px rgba(109, 40, 217, 0.35);
+  --blob-opacity: 0.35;
+  color-scheme: light;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Elements waiting off-screen to slide in must not widen the page on phones.
+   clip (unlike hidden) doesn't create a scroll container, so the sticky navbar keeps working. */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: 16px;
+  z-index: 200;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: min(1160px, 100% - 32px);
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding: 110px 0;
+  /* Stops the sticky navbar from covering a heading after clicking a nav link. */
+  scroll-margin-top: 70px;
+  /* The browser skips layout and painting for sections far off-screen until you scroll near them.
+     This is the biggest speed-up on phones. "auto 900px" is a size estimate used until the
+     section has been rendered once; after that the browser remembers its real height. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+.section-head {
+  margin-bottom: 52px;
+  max-width: 680px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+}
+
+.section-sub {
+  color: var(--muted);
+  margin-top: 14px;
+  font-size: 1.05rem;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.7);
+}
+.btn-primary:hover {
+  box-shadow: 0 14px 40px -8px rgba(139, 92, 246, 0.9);
+}
+
+.btn-ghost {
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  backdrop-filter: blur(8px);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.btn-sm {
+  padding: 9px 16px;
+  font-size: 0.85rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .section {
+    padding: 80px 0;
+  }
+  .section-head {
+    margin-bottom: 36px;
+  }
+}
+
+/* Users who ask their OS for less motion get a calm site.
+   Framer Motion handles its own animations via <MotionConfig reducedMotion="user">. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

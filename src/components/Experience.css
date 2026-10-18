@@ -1,0 +1,133 @@
+.section-alt {
+  background: linear-gradient(180deg, transparent, var(--bg-soft) 18%, var(--bg-soft) 82%, transparent);
+}
+
+.timeline-wrap {
+  position: relative;
+  max-width: 860px;
+}
+.timeline {
+  list-style: none;
+  display: grid;
+  gap: 22px;
+}
+
+.timeline-track {
+  position: absolute;
+  left: 21px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--border-strong);
+}
+.timeline-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--gradient);
+  transform-origin: top;
+  box-shadow: 0 0 14px var(--accent);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 22px;
+}
+
+.timeline-icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  color: var(--accent-text);
+  font-size: 1.05rem;
+  box-shadow: 0 0 0 6px var(--bg-soft);
+}
+
+.timeline-card {
+  padding: 20px 22px;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+.timeline-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  transform: translateX(6px);
+}
+
+.timeline-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 16px;
+  margin-bottom: 10px;
+}
+.timeline-head h3 {
+  font-size: 1.15rem;
+}
+.timeline-head h3 span {
+  font-weight: 500;
+  color: var(--muted);
+}
+.timeline-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--accent-2);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 40%, transparent);
+}
+
+.timeline-card ul {
+  display: grid;
+  gap: 6px;
+}
+.timeline-card li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.timeline-card li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-text);
+}
+
+.timeline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.timeline-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .timeline-item {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+  }
+  .timeline-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  .timeline-track {
+    left: 17px;
+  }
+}
