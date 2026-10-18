@@ -1,9 +1,7 @@
-import { motion } from 'framer-motion';
-import { FaGraduationCap, FaStar } from 'react-icons/fa6';
-import { education, achievements } from '../data/experience';
+import { FaGraduationCap } from 'react-icons/fa6';
+import { education } from '../data/experience';
 import SectionHeading from './SectionHeading';
 import Reveal from './motion/Reveal';
-import { fadeUp, stagger } from './motion/variants';
 import TiltCard from './projects/TiltCard';
 import './Education.css';
 
@@ -29,30 +27,6 @@ export default function Education() {
             </div>
           </TiltCard>
         </Reveal>
-
-        <h3 className="ach-title">Achievements &amp; highlights</h3>
-        <motion.ul
-          className="ach-grid"
-          variants={stagger(0.1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-60px' }}
-        >
-          {achievements.map((a) => (
-            <motion.li key={a.title} className="ach-card card" variants={fadeUp} whileHover={{ y: -6 }}>
-              <motion.span
-                className="ach-icon"
-                aria-hidden="true"
-                whileHover={{ rotate: 72, scale: 1.2 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <FaStar />
-              </motion.span>
-              <h4>{a.title}</h4>
-              <p>{a.description}</p>
-            </motion.li>
-          ))}
-        </motion.ul>
       </div>
     </section>
   );

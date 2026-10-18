@@ -36,7 +36,7 @@ export default function Certifications() {
           eyebrow="Certifications"
           title="Verified learning"
           highlight="Verified"
-          sub="Every card with a Verify button opens the official credential page."
+          sub="Every certificate links to its official credential page, so you can check it yourself."
         />
 
         <Reveal>

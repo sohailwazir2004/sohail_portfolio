@@ -74,7 +74,7 @@ All text lives in `src/data/`, so you never need to touch a component to update 
 | `profile.js` | Name, roles, bio, links, quick facts |
 | `skills.js` | Skill groups and "currently learning" |
 | `projects.js` | Projects, screenshots, filter categories |
-| `experience.js` | Experience timeline, education, achievements |
+| `experience.js` | Experience timeline and education |
 | `certifications.js` | Certificates with credential IDs and verify links |
 | `nav.js` | Navbar and footer links |
 

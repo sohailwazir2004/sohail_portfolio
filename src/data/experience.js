@@ -68,22 +68,3 @@ export const education = {
   details: 'Batch FA24 · currently in 5th semester',
   focus: 'Focus on full-stack development, OOP principles, and data structures',
 };
-
-// Kept from the previous version of the site.
-// TODO: these are general statements without proof. Consider replacing them with specifics
-// (e.g. link real open-source pull requests) or removing them.
-export const achievements = [
-  {
-    title: 'Full-Stack Development Learner',
-    description: 'Completed comprehensive courses in frontend and backend development with hands-on projects',
-  },
-  {
-    title: 'Open Source Contributor',
-    description: 'Active contributor to open-source projects, focusing on frontend development and JavaScript',
-  },
-  {
-    title: 'Problem Solver',
-    description:
-      'Strong problem-solving skills demonstrated through multiple projects implementing OOP and design patterns',
-  },
-];

@@ -8,9 +8,7 @@ export const issuers = {
   IBM: { color: '#4589ff', short: 'IBM' },
   Meta: { color: '#0866ff', short: 'Meta' },
   Anthropic: { color: '#d97757', short: 'Anthropic' },
-  Udemy: { color: '#a435f0', short: 'Udemy' },
-  Coursera: { color: '#0056d2', short: 'Coursera' },
-  Other: { color: '#94a3b8', short: 'Other' },
+  Other: { color: '#94a3b8', short: 'Other' }, // fallback for an issuer not listed above
 };
 
 export const certifications = [
@@ -72,8 +70,7 @@ export const certifications = [
     verify: coursera('14TK2X7D9O62'),
   },
   {
-    // Note: Coursera's verify page currently shows this course as "Java Programming for Beginners".
-    title: 'Introduction to Programming Using Java',
+    title: 'Java Programming for Beginners',
     issuer: 'IBM',
     issuerFull: 'IBM (Coursera)',
     date: 'Aug 2025',
@@ -96,12 +93,6 @@ export const certifications = [
     credentialId: '5HLEFAYPEVFX',
     verify: coursera('5HLEFAYPEVFX'),
   },
-
-  // Kept from the previous version of the site (they are not on my LinkedIn list).
-  // TODO: add real credential links, or delete these three if they were placeholders.
-  { title: 'React - The Complete Guide', issuer: 'Udemy', issuerFull: 'Udemy', date: '2024', verify: null },
-  { title: 'JavaScript Fundamentals', issuer: 'Coursera', issuerFull: 'Coursera', date: '2024', verify: null },
-  { title: 'Web Development Bootcamp', issuer: 'Other', issuerFull: 'Online Platform', date: '2023', verify: null },
 ];
 
 export const inProgress = {

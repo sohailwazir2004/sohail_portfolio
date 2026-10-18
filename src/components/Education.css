@@ -39,38 +39,6 @@
   color: var(--muted);
 }
 
-.ach-title {
-  margin: 60px 0 22px;
-  font-size: 1.5rem;
-}
-.ach-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: 18px;
-}
-.ach-card {
-  padding: 24px;
-  border-top: 3px solid #f59e0b;
-}
-.ach-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  margin-bottom: 14px;
-  border-radius: 12px;
-  color: #f59e0b;
-  background: color-mix(in srgb, #f59e0b 14%, transparent);
-}
-.ach-card h4 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-.ach-card p {
-  color: var(--muted);
-  font-size: 0.93rem;
-}
-
 @media (max-width: 520px) {
   .edu-card {
     flex-direction: column;
